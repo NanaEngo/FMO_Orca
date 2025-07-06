@@ -8,7 +8,7 @@ DEFAULT_CONFIG = {
     'nroots': 3,
     'triplets': True,
     'force_field': 'MMFF94',
-    'maxcore': None,
+    'maxcore': 7000,
     'auto_memory': True,
     'max_mem_limit': 8000
 }

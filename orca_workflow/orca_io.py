@@ -65,7 +65,7 @@ New_Step
 Step_End
 
 New_Step
-  ! {method} TightSCF CPCM({solvent}) PIEDA(Full, BSSE)
+  ! {method} TightSCF CPCM({solvent}) GCP(HF/MINIS)
 
   %cpcm
     smd true
@@ -85,10 +85,12 @@ New_Step
   end
 
   %frag
-    FragProc Connectivity
+    FragProc FunctionalGroups, Extend
     PrintLevel 3
     STOREFRAGS true
   end
+  
+  * xyzfile 0 1 ./results/{base_name}_Compound_1.xyz
 Step_End
 
 New_Step
@@ -99,10 +101,10 @@ New_Step
     SMDsolvent "{solvent}"
   end
 
-  %frag
-    FragmentFromFile
-    PrintLevel 3
-  end
+#  %frag
+#    FragmentFromFile
+#    PrintLevel 3
+#  end
 
   %tddft
     Mode sTDA
@@ -116,7 +118,7 @@ New_Step
     Triplets {triplets_str}
   end
 
-  * xyzfile "./results/{base_name}.fragments.xyz"
+  * xyzfile 0 1 ./results/{base_name}_Compound_1.fragments.xyz
 Step_End
 End
 """
